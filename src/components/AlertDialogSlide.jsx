@@ -1,8 +1,8 @@
 import React from "react";
 import { Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Slide } from "@mui/material";
 import { GreenButton, RedButton } from "../utils/buttonStyles";
-
-const AlertDialogSlide = ({ dialog, showDialog, setShowDialog }) => {
+//task handler is added in the object items in the below line
+const AlertDialogSlide = ({ dialog, showDialog, setShowDialog, taskHandler }) => {
     const handleClose = () => {
         setShowDialog(false);
     };

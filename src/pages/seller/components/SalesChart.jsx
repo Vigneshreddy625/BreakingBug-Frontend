@@ -14,8 +14,8 @@ import Chart from 'react-apexcharts';
 import { ChartDatabyYear } from '../../../utils/chartData';
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
-
-const SalesChart = ({  }) => {
+//type is added in 18th line
+const SalesChart = ({ type }) => {
 
     const navigate = useNavigate();
 

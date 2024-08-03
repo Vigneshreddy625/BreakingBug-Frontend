@@ -49,7 +49,8 @@ export const addStuff = (address, fields) => async (dispatch) => {
 
     try {
         const result = await axios.post(`${process.env.REACT_APP_BASE_URL}/${address}`, fields, {
-            headers: { 'Content-Type': 'application/json' },---
+           ///--- has been removed 
+            headers: { 'Content-Type': 'application/json' },
         });
 
         if (result.data.message) {
@@ -95,20 +96,23 @@ export const deleteStuff = (id, address) => async (dispatch) => {
     }
 }
 
+
+
 export const updateCustomer = (fields, id) => async (dispatch) => {
-    dispatch(updateCurrentUser(fields));
-    await axios.put(`${process.env.REACT_APP_BASE_URL}/CustomerUpdate/${id}`, fields);
+    dispatch(updateCurrentUser(fields)); // Update the current user in state
+
+    try {
+        // Make the PUT request to update the customer
+        await axios.put(`${process.env.REACT_APP_BASE_URL}/CustomerUpdate/${id}`, fields);
+        
+        // Dispatch the success action after the PUT request
+        dispatch(stuffUpdated());
+    } catch (error) {
+        // Dispatch error action if the request fails
+        dispatch(getError(error.response?.data?.message || 'An error occurred'));
+    }
 };
 
-        dispatch(stuffUpdated());
-
-      } catch (error) {
-
-        dispatch(getError(error));
-
-    }
-
-    }
 
 export const getProductsbySeller = (id) => async (dispatch) => {
     dispatch(getRequest());
@@ -159,7 +163,7 @@ export const getProductDetails = (id) => async (dispatch) => {
     }
 }
 
-export const getCustomers = (id) => async (dispatch) => {
+export const getCustomers = (id, address) => async (dispatch) => {
     dispatch(getRequest());
 
     try {

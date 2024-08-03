@@ -1,5 +1,7 @@
 import React, {useState} from 'react'
-import {Table, TableBody, TableCell, TableContainer, TableRow, styled} from '@mui/material';
+//button is added in import statement
+//tablecellclasses is added in import statement
+import {Table, TableBody, TableCell, TableContainer, TableRow, styled, Button, tableCellClasses} from '@mui/material';
 
 const TableTemplate = ({columns, rows}) => {
   const [page, setPage] = useState(0);
@@ -33,14 +35,15 @@ const TableTemplate = ({columns, rows}) => {
                         <StyledTableCell key={column.Id} align={column.align}>
                           {
                             column.format && typeof value === 'number'
-                              ? column.format(id)
+                            //id is changed to value as parameter 
+                            ? column.format(value)
                               : value
                           }
                         </StyledTableCell>
                       );
                     })}
                     <StyledTableCell align="center">
-                      <ButtonHaver row={row}/>
+                      <Button row={row}/>
                     </StyledTableCell>
                   </StyledTableRow>
                 );

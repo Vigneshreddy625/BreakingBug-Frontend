@@ -8,6 +8,10 @@ import SpeedDialTemplate from '../../../components/SpeedDialTemplate.jsx';
 import AddCardIcon from '@mui/icons-material/AddCard';
 import DeleteIcon from "@mui/icons-material/Delete";
 import UploadIcon from '@mui/icons-material/Upload';
+//line number 12, 13 are added.
+import {Grid} from '@mui/material';
+import { Box } from '@mui/material';
+
 import AlertDialogSlide from '../../../components/AlertDialogSlide';
 
 const ShowProducts = () => {

@@ -12,6 +12,11 @@ const Products = ({}) => {
   const dispatch = useDispatch();
 
   const itemsPerPage = 9;
+//the below line is added.
+  const navigate = useNavigate();
+//the below line is added.
+  const { productData } = useSelector((state) => state.products);
+
 
   const { currentRole, responseSearch } = useSelector();
   const [currentPage, setCurrentPage] = useState(1);

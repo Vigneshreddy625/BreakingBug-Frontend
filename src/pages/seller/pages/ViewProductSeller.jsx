@@ -35,6 +35,7 @@ const ViewProductSeller = () => {
   const [category, setCategory] = useState("");
   const [description, setDescription] = useState("");
   const [tagline, setTagline] = useState("");
+  
 
   const [loader, setLoader] = useState(false);
   const [message, setMessage] = useState("");
@@ -139,7 +140,8 @@ const ViewProductSeller = () => {
                   <GreenButton
                     onClick={() => setShowTab(!showTab)}
                   >
-                    {showTab ? <KeyboardArrowUp /> : <KeyboardArrowDown />}{buttonText}
+                   {/* //{buttonText} is removed */}
+                    {showTab ? <KeyboardArrowUp /> : <KeyboardArrowDown />}
                   </GreenButton>
                 </ButtonContainer>
 
@@ -296,10 +298,12 @@ const ViewProductSeller = () => {
                       <ReviewCard key={index}>
                         <ReviewCardDivision>
                           <Avatar sx={{ width: "60px", height: "60px", marginRight: "1rem", backgroundColor: generateRandomColor(review._id) }}>
-                            {String(reviewreviewername).charAt(0)}
+                            {/* //The below line is modified */}
+                            {String(review.reviewer.name).charAt(0)}
                           </Avatar>
                           <ReviewDetails>
-                            <Typography variant="h6">{reviewreviewername}</Typography>
+                            {/* //the Below line is modified */}
+                            <Typography variant="h6">{review.reviewer.name}</Typography>
                             <div style={{ display: 'flex', alignItems: 'center', marginBottom: '1rem' }}>
 
                               <Typography variant="body2">

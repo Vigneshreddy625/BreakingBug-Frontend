@@ -11,8 +11,8 @@ import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
 import { useSelector } from 'react-redux';
 
 const SideBar = () => {
-
-    
+//the below line is added.
+    const location = useLocation();
 
     const { currentRole } = useSelector(state => state.user);
 
